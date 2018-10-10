@@ -13,7 +13,8 @@
 		</graphicData>
 		<projectile>
 			<explosionRadius>2</explosionRadius>
-			<damageDef>M18SmokeExplosion</damageDef>
+			<damageDef>Smoke</damageDef>
+			<preExplosionSpawnThingDef>Gas_Smoke</preExplosionSpawnThingDef>
 			<damageAmountBase>90</damageAmountBase>
 			<explosionDelay>100</explosionDelay>
 		</projectile>
