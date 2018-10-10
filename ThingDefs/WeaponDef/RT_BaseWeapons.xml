@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<!--Note:  If you inherit a defined recipeUsers and define another in the child it will allow the item to be made at all defined recipeUsers in the chain
+	unless Inherit="False" is specified-->
+	<!--disallowedThingDef doesn't seem to apply when stuffCategories include disallowed material as evidenced by Ikwa-->
+	<!--Neolithic ranged weaponTags should be defined per weapon as there is no vanilla abstract, and there are too few in this mod to justify an abstract-->
+	<!--Use BaseHumanGun as the ParentName of specific weapons/abstracts that should inherit the "Gun" weaponTags and be craftable with quality without
+	default recipeMaker-->
+	<!--Use BaseGunWithQuality as the ParentName of specific weapons/abstracts that should inherit no weaponTags and be craftable with quality without
+	default recipeMaker-->
+	<!--I have no idea if SimpleGun is even used as I can't find a reference to it in pawn spawning but it is still used in vanilla weapon defs-->
+	<!--Crafting requirement should probably be on a weapon to weapon basis, but original has it the same for all of them, so I'm taking the easy way out-->
+	<!--If you want to change the crafting requirements for a weapon add <recipeMaker><skillRequirements><Crafting> and the level to the
+	new thingDef that defines the weapon and it will overwrite this one-->
+	
+	<ThingDef Name="RT_Base" ParentName="BaseHumanMakeableGun" Abstract="True">
+		<recipeMaker>
+			<soundWorking>Recipe_Machining</soundWorking>
+			<recipeUsers Inherit="False">
+				<li>RT_WeaponAssemblyTable</li>
+			</recipeUsers>
+		</recipeMaker>
+	</ThingDef>
+	
+	<ThingDef Name="RT_Pistol" ParentName="RT_Base" Abstract="True">
+		<recipeMaker>
+			<researchPrerequisite>RT_Pistols</researchPrerequisite>
+			<skillRequirements>
+				<Crafting>3</Crafting>
+			</skillRequirements>
+		</recipeMaker>
+		<weaponTags>
+			<li>SimpleGun</li>
+		</weaponTags>
+	</ThingDef>
+	
+	<ThingDef Name="RT_SMG" ParentName="RT_Base" Abstract="True">
+		<recipeMaker>
+			<researchPrerequisite>RT_Smgs</researchPrerequisite>
+			<skillRequirements>
+				<Crafting>5</Crafting>
+			</skillRequirements>
+		</recipeMaker>
+		<weaponTags>
+			<li>SimpleGun</li>
+			<li>IndustrialGunAdvanced</li>
+		</weaponTags>
+	</ThingDef>
+	
+	<ThingDef Name="RT_Shotgun" ParentName="RT_Base" Abstract="True">
+		<recipeMaker>
+			<researchPrerequisite>RT_Shotguns</researchPrerequisite>
+			<skillRequirements>
+				<Crafting>4</Crafting>
+			</skillRequirements>
+		</recipeMaker>
+		<weaponTags>
+			<li>SimpleGun</li>
+			<li>IndustrialGunAdvanced</li>
+		</weaponTags>
+	</ThingDef>
+	
+	<ThingDef Name="RT_Rifle" ParentName="RT_Base" Abstract="True">
+		<recipeMaker>
+			<researchPrerequisite>RT_Rifles</researchPrerequisite>
+			<skillRequirements>
+				<Crafting>6</Crafting>
+			</skillRequirements>
+		</recipeMaker>
+		<weaponTags>
+			<li>IndustrialGunAdvanced</li>
+		</weaponTags>
+	</ThingDef>
+	
+	<ThingDef Name="RT_SniperRifle" ParentName="RT_Base" Abstract="True">
+		<recipeMaker>
+			<researchPrerequisite>RT_SniperRifles</researchPrerequisite>
+			<skillRequirements>
+				<Crafting>7</Crafting>
+			</skillRequirements>
+		</recipeMaker>
+		<weaponTags Inherit="False">
+			<li>SniperRifle</li>
+		</weaponTags>
+	</ThingDef>
+	
+	<!--These tags are also useful for stronger/hard to balance guns-->
+	<ThingDef Name="RT_HeavyGun" ParentName="RT_Base" Abstract="True">
+		<recipeMaker>
+			<researchPrerequisite>RT_HeavyWeapons</researchPrerequisite>
+			<skillRequirements>
+				<Crafting>8</Crafting>
+			</skillRequirements>
+		</recipeMaker>
+		<weaponTags Inherit="False">
+			<li>IndustrialGunAdvanced</li>
+			<li>GunHeavy</li>
+		</weaponTags>
+	</ThingDef>
+	
+	<ThingDef Name="RT_Grenade" ParentName="BaseMakeableGrenade" Abstract="True">
+		<recipeMaker>
+			<soundWorking>Recipe_Machining</soundWorking>
+			<recipeUsers Inherit="False">
+				<li>RT_WeaponAssemblyTable</li>
+			</recipeUsers>
+			<researchPrerequisite>RT_ThrowableGrenades</researchPrerequisite>
+			<skillRequirements>
+				<Crafting>5</Crafting>
+			</skillRequirements>
+		</recipeMaker>
+	</ThingDef>
+	
+	
+	<!--Tags the Gun for a chance to spawn with pretty well any ranged pawn for !FUN! or testing-->
+	<!--<ThingDef Name="RT_Testing" ParentName="RT_Base" Abstract="True">
+		<weaponTags>
+			<li>SimpleGun</li>
+			<li>SniperRifle</li>
+			<li>GunHeavy</li>
+			<li>IndustrialGunAdvanced</li>
+			<li>SpacerGun</li>
+			<li>NeolithicRangedBasic</li>
+			<li>NeolithicRangedDecent</li>
+			<li>NeolithicRangedHeavy</li>
+			<li>NeolithicRangedChief</li>
+		</weaponTags>
+	</ThingDef>-->
+	
+</Defs>
